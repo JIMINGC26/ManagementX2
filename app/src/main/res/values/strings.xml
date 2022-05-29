@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ManagementX2</string>
+    <string name="create_board">创建看板</string>
+    <string name="create_board_hint">输入看板名称</string>
+    <string name="cancle_creat">取消</string>
+    <string name="create">创建</string>
+    <string name="log">登录</string>
+    <string name="enroll">注册</string>
+    <string name="register">注册</string>
+    <string name="account">账号</string>
+    <string name="password_conform">确认密码</string>
+    <string name="password">密码</string>
+</resources>
