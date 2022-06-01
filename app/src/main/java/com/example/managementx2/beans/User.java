@@ -6,8 +6,6 @@ import cn.bmob.v3.datatype.BmobRelation;
 public class User extends BmobUser {
 
     private String account;
-
-
     private BmobRelation UserToTeam;
 
     public BmobRelation getUserToTeam() {

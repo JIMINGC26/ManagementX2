@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText username;
     private EditText passwd;
     private Button loginBtn;
+    private Button registerBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         username = (EditText) findViewById(R.id.login_user);
         passwd = (EditText) findViewById(R.id.login_psw);
         loginBtn = (Button) findViewById(R.id.login_btn);
+        registerBtn = (Button) findViewById(R.id.enroll_btn);
 
         User user = new User();
 
@@ -47,11 +50,18 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         }else {
                             Log.d("login", e.getMessage());
+                            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
+
+        registerBtn.setOnClickListener((v) -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
+
 
     }
 }

@@ -3,12 +3,15 @@ package com.example.managementx2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +21,7 @@ import com.example.managementx2.adapters.MemberAdapter;
 import com.example.managementx2.beans.Task;
 import com.example.managementx2.beans.Team;
 import com.example.managementx2.beans.User;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +31,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 
 public class BoardActivity extends AppCompatActivity {
 
@@ -36,6 +41,7 @@ public class BoardActivity extends AppCompatActivity {
     private MemberAdapter memberAdapter;
     private CardAdapter cardAdapter;
     private TextView boardName;
+    private FloatingActionButton addCardButton;
 
     private String teamId;
     private String teamName;
@@ -58,6 +64,54 @@ public class BoardActivity extends AppCompatActivity {
         boardName.setText(intent.getStringExtra("teamName"));
         teamName = boardName.getText().toString();
         teamId = intent.getStringExtra("teamId");
+
+        addCardButton = (FloatingActionButton) findViewById(R.id.add_task);
+
+        addCardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(BoardActivity.this);
+                final AlertDialog dialog = builder.create();
+                View dialogView = View.inflate(BoardActivity.this, R.layout.dialog_create_card, null);
+                dialog.setView(dialogView);
+                dialog.show();
+
+                EditText input_task_name = (EditText) dialogView.findViewById(R.id.input_task_name);
+                EditText input_task_detail = (EditText) dialogView.findViewById(R.id.input_task_detail);
+                Button add = (Button) dialogView.findViewById(R.id.dialog_create_card_btn1);
+                Button cancel = (Button) dialogView.findViewById(R.id.dialog_create_card_btn2);
+
+
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Task task = new Task();
+                        task.setTaskName(input_task_name.getText().toString());
+                        task.setDetail(input_task_detail.getText().toString());
+                        Team team = new Team();
+                        team.setObjectId(teamId);
+                        task.setTaskToTeam(team);
+                        task.save(new SaveListener<String>() {
+                            @Override
+                            public void done(String s, BmobException e) {
+                                if (e == null){
+                                    Log.d("task", s);
+                                    taskList.add(task);
+                                    cardAdapter.notifyItemChanged(0);
+                                    dialog.dismiss();
+                                }else {
+                                    Log.d("task", e.getMessage());
+                                }
+                            }
+                        });
+                    }
+                });
+
+                cancel.setOnClickListener((view) -> {
+                    dialog.dismiss();
+                });
+            }
+        });
 
         initData_member();
         initData_task();
