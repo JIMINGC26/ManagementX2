@@ -5,49 +5,43 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/input_task_name"
+        android:id="@+id/edittext_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入任务名称"
-        android:inputType="text"
-        />
-
-    <EditText
-        android:id="@+id/input_task_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="任务描述"
+        android:hint="输入内容..."
         android:gravity="top"
         android:singleLine="false"
-        android:minLines="8"
+        android:minLines="4"
         android:maxLines="10"
         android:inputType="textMultiLine"
         android:background="@null"
+        android:layout_margin="10dp"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
 
         <Button
-            android:id="@+id/dialog_create_card_btn1"
+            android:id="@+id/add_comment_btn"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="确定"
+            android:text="确认"
             android:layout_margin="5dp"
             />
+
         <Button
-            android:id="@+id/dialog_create_card_btn2"
+            android:id="@+id/cancel_comment_btn"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="取消"
             android:layout_margin="5dp"
             />
 
     </LinearLayout>
-
 
 </LinearLayout>

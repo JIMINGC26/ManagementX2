@@ -14,7 +14,7 @@ public class Task extends BmobObject {
     }
 
     public void setTaskName(String taskName) {
-        taskName = taskName;
+        this.taskName = taskName;
     }
 
     public String getDetail() {
