@@ -144,7 +144,7 @@ public class BoardActivity extends AppCompatActivity {
     }
 
     private void initMemberRecyclerView() {
-        memberView = (RecyclerView) findViewById(R.id.member_List);
+//        memberView = (RecyclerView) findViewById(R.id.member_List);
         memberAdapter = new MemberAdapter(users, this);
         memberView.setAdapter(memberAdapter);
         memberView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));

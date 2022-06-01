@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="10dp"
-    android:elevation="10dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    android:elevation="24dp"
+    app:cardCornerRadius="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,35 +16,42 @@
 
         <TextView
             android:id="@+id/card_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/card_detail"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_margin="15dp"
-            android:textSize="15sp"
-        />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/card_member"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_margin="15dp"
-            android:textSize="15sp"
-            />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="XX comments"
+            android:textAlignment="textEnd"
+            android:textColor="@color/gray"
+            android:textSize="11sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_gravity="bottom"
+            android:background="@color/gray" />
     </LinearLayout>
-
 
 
 </androidx.cardview.widget.CardView>
