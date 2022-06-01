@@ -165,10 +165,9 @@ public class BoardActivity extends AppCompatActivity {
                 if (e == null){
                     if (list.size() == 0){
                         Toast.makeText(BoardActivity.this, "尚未分配任务", Toast.LENGTH_SHORT).show();
-                    }else {
-                        taskList.addAll(list);
-                        initCardRecyclerView();
                     }
+                    taskList.addAll(list);
+                    initCardRecyclerView();
                 }else {
                     Log.d("card", e.getMessage());
                 }
