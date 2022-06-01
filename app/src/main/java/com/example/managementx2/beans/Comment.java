@@ -6,8 +6,8 @@ import cn.bmob.v3.datatype.BmobPointer;
 public class Comment extends BmobObject {
 
     private String content;
-    private BmobPointer author;
-    private BmobPointer CommentToTask;
+    private User author;
+    private Task CommentToTask;
 
     public String getContent() {
         return content;
@@ -17,19 +17,19 @@ public class Comment extends BmobObject {
         this.content = content;
     }
 
-    public BmobPointer getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(BmobPointer author) {
+    public void setAuthor(User author) {
         this.author = author;
     }
 
-    public BmobPointer getCommentToTask() {
+    public Task getCommentToTask() {
         return CommentToTask;
     }
 
-    public void setCommentToTask(BmobPointer commentToTask) {
+    public void setCommentToTask(Task commentToTask) {
         CommentToTask = commentToTask;
     }
 }

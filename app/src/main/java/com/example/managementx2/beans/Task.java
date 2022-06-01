@@ -5,16 +5,16 @@ import cn.bmob.v3.datatype.BmobPointer;
 
 public class Task extends BmobObject {
 
-    private String TaskName;
+    private String taskName;
     private String detail;
-    private BmobPointer TaskToTeam;
+    private Team TaskToTeam;
 
     public String getTaskName() {
-        return TaskName;
+        return taskName;
     }
 
     public void setTaskName(String taskName) {
-        TaskName = taskName;
+        taskName = taskName;
     }
 
     public String getDetail() {
@@ -25,11 +25,11 @@ public class Task extends BmobObject {
         this.detail = detail;
     }
 
-    public BmobPointer getTaskToTeam() {
+    public Team getTaskToTeam() {
         return TaskToTeam;
     }
 
-    public void setTaskToTeam(BmobPointer taskToTeam) {
+    public void setTaskToTeam(Team taskToTeam) {
         TaskToTeam = taskToTeam;
     }
 }

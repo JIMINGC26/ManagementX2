@@ -2,6 +2,7 @@ package com.example.managementx2.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.managementx2.CardActivity;
 import com.example.managementx2.R;
 import com.example.managementx2.beans.Task;
 
@@ -41,7 +43,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context, CardActivity.class);
+                intent.putExtra("cardId", task.getObjectId());
+                intent.putExtra("cardName", task.getTaskName());
+                intent.putExtra("cardDetail", task.getDetail());
+                context.startActivity(intent);
             }
         });
 

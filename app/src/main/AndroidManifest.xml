@@ -38,8 +38,9 @@
         <activity android:name=".BoardActivity" />
         <activity android:name=".LoginActivity"
             android:exported="true">
-
         </activity>
+        <activity android:name=".CardActivity"/>
+        <activity android:name=".RegisterActivity"/>
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.example.managementx2.BmobContentProvider"
